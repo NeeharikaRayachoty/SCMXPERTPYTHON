@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Dashboard</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+
+  <!-- Google Fonts
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"> -->
+
+  <!-- Vendor CSS Files -->
+  <link href="../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../static/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../static/css/style.css" rel="stylesheet">
+  <link href="../static/css/dashboard.css" rel="stylesheet">
+  <link href="../static/css/login.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <!-- <link href="/static/css/signup.css" rel="stylesheet"> -->
+
+
+</head>
+
+<body>
+
+  <br>
+  <h1 style="text-align: center; color: rgb(204, 32, 89);">Dashboard</h1>
+  <!-- Add the logout button HTML code here -->
+  <a href="/">LOGOUT</a>
+  <hr class="decorative__line--break">
+  <ul class="navigation navigation--secondary">
+
+    <div class="dashboard">
+      <div style="color:#FF416C;;margin-top: 9%;margin-left: 45%;">
+        <span style="letter-spacing: 4px;
+        margin-left: -21%;
+        font-size: x-large;
+        font-family: serif;
+        color: #FF416C;
+        ">Hi &#x1F44B {{user.Username}} Welcome to SCMXpert!</span>
+      </div>
+
+      <body>
+        <div class="container">
+          <div class="row">
+            <!-- Create Shipment button -->
+
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body" id="createShipment">
+                  <h5 class="card-title">Create Shipment</h5>
+                  <p class="card-text">Click here to create a new shipment.</p>
+                  <button class="btn btn-primary" onclick="shipment()">Create Shipment</button>
+                </div>
+              </div>
+            </div>
+            <!-- Data Stream Device button -->
+            {% if user and user["Role"] in ["Super-Admin"] %}
+            <div class="col-sm-6">
+              <div class="card">
+
+                <div class="card-body" id="deviceDataStream">
+                  <h5 class="card-title">Data Stream Device</h5>
+                  <p class="card-text">Click here to start streaming data from your device.</p>
+                  <button class="btn btn-primary" onclick="devicedata()">Device Data Stream</button>
+                </div>
+
+              </div>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+    </div>
+    <script>
+      function shipment() {
+        window.location.href = "/shipment";
+        document.getElementById("createShipment").style.display = "block";
+      }
+
+      function devicedata() {
+        window.location.href = "/devicedata";
+        document.getElementById("deviceDataStream").style.display = "block";
+      }
+    </script>
+    <!-- <script>
+      window.addEventListener("load", async function () {
+  
+        var username = await localStorage.getItem("username");
+        var Role = await localStorage.getItem("role");
+        
+        if (Role === "Super-Admin" ) {
+          $("#createShipment,#deviceDataStream").show();
+  
+        } else if (Role === "User-Viewer") {
+  
+          $("#createShipment").show();
+          $("#deviceDataStream").hide();
+
+  
+        }});
+    </script> -->
+    <!-- ======= Footer ======= -->
+    <footer id="footer" style=" margin-left: -3%; margin-top: 10%;">
+      <div class="container footer-bottom clearfix">
+        <div class="copyright">
+          &copy; Copyright <strong><span>SCMXpert</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="https://www.scmxpert.com/" target="_blank">SCMXpertLite</a>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+</body>
+
+</html>

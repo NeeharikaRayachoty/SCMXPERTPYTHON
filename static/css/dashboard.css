@@ -1,0 +1,55 @@
+/* Dashboard animation */
+body {
+  background-color: blanchedalmond;
+}
+.dashboard {
+   
+  color: #dc3545;
+    animation-name: slideFromTop;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+  }
+  
+  /* Shipment and Device Data Stream button animation */
+  .card button {
+    background-color: #4caf50;
+    animation-name: scale;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  /* Create Shipment button color change on hover */
+  #createShipment:hover {
+    background-color: #FF416C;
+    color: #fff;
+  }
+  
+  /* Device Data Stream button color change on hover */
+  #deviceDataStream:hover {
+    background-color: #FF416C;
+    color: #fff;
+  }
+  
+  /* Animation keyframes */
+  @keyframes slideFromTop {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scale {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  

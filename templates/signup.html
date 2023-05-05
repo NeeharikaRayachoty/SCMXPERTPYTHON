@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SignUp</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Login</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+</head>
+
+<!-- Template Main CSS File -->
+<link href="../static/css/style.css" rel="stylesheet">
+<link href="../static/css/login.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+      <nav id="navbar" class="navbar">
+        <ul style="margin-left: 10%;"></ul>
+      </nav>
+
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!--====Sign Up Page=====-->
+  <div class="login" style="margin-top: 20%;">
+    <form method="post" action="/signup">
+      <h1 style="margin-bottom: -50px;">Sign Up</h1>
+      {% if Email_Existed %}
+            <span style="color: rgb(143, 9, 155);margin-left: 36%;padding: 2% ;font-size: medium;font-family: inherit;">{{Email_Existed}}</span>
+            {%  endif %}  
+      <input type="text" id="username" name="username" placeholder="Username" style="top: 65px;position:relative;"
+        required="required" width: 100%; padding: 10px; border-radius: 5px; border: none; margin-bottom: 20px;
+        background-color: rgba(255,255,255,0.3); color: #fff; font-size: 16px;>
+        <!-- {{Email_Existed}} -->
+      <input type="email" id="email" name="email" placeholder="Email" style="top: 58px;position:relative;"
+        required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        title="After the '.' sign, add at least 2 letters from a to z" />
+      <select id="role"required name="role" style="   top: 27px ;position:relative;
+        width: 94%;padding: 10px;border-radius: 5px;margin-bottom: 20px; margin-top: 25px;font-size: 16px;border: none;outline: none;background-color:rgba(255,255,255,0.3); color: #6d6c6c; font-size: 16px; ">
+          <option value="defaultValue">Select Role</option> 
+        
+          <option value="Super-Admin">SuperAdmin</option>
+        
+          <option value="User-Viewer">UserViewer</option>
+        
+        </select>
+  
+      <input type="password" id="password" name="password" class="password" placeholder="Password" required="required"
+        style="top: 22px;position:relative ;" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" />
+      <span style="margin-left: 17rem;position: relative;color: hwb(330 7% 39%);top: -22px; font-size: small;" class="show"
+        onclick="enablesubmit">SHOW</span>
+      <input type="password" id="cnfpassword" name="cnfpassword" onpaste="return false" placeholder="Confirm Password" onkeyup="check();"
+        required="required" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
+      <!-- <span style="margin-left: 15rem;position: relative;color: white;top: -40px;" class="show">SHOW</span> -->
+      <span id="message1" style="color:hwb(330 7% 39%);bottom: 114px;
+            margin-left: 2.5rem;
+            font-size: medium;
+            font-family: inherit;
+            letter-spacing: 0.5px;">
+      </span>
+      <button type="submit" id="register" class="btn btn-primary btn-block btn-large" style="margin-top: 2.5%;"
+        onclick="register()">Register</button>
+      <div class="register" style="color: white; margin-top: 4%; text-align: center;">
+        Do you have an account? <a href="/">Login !</a>
+      </div>
+    </form>
+  </div>
+  <!--End Sign Up page-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    function check() {
+      var pw1 = document.getElementById("password").value;
+      var pw2 = document.getElementById("cnfpassword").value;
+      if (pw1 == pw2) {
+        document.getElementById("message1").innerHTML = "";
+      }
+      else {
+        document.getElementById("message1").innerHTML = "**Passwords are not same**";
+      }
+    }
+  </script>
+  <script>
+    function enablesubmit() {
+      document.getElementById("login").disabled = false;
+    }
+    const pass_field = document.querySelector(".password");
+    const showBtn = document.querySelector(".show");
+    showBtn.addEventListener("click", function () {
+      if (pass_field.type === "password") {
+        pass_field.type = "text";
+        showBtn.textContent = "HIDE";
+        showBtn.style.color = "white";
+      } else {
+        pass_field.type = "password";
+        showBtn.textContent = "SHOW";
+        showBtn.style.color = "white";
+      }
+    });
+  </script>
+  <script>
+    function register() {
+      window.location.href = "/login";
+      document.getElementById("register").style.display = "block";
+    }
+  </script>
+ 
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" style="  margin-top: -16%;">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>SCMXpert</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="https://www.scmxpert.com/" target="_blank">SCMXpertLite</a>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+
+
+</body>
+
+</html>

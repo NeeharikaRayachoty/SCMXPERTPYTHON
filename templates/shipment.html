@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      
+        <title>Shipment</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+      
+        <link href="../static/css/shipment.css" rel="stylesheet">
+    </head>
+<body> 
+ <!-- ======= Header ======= -->
+  <header id="header"  >
+    <div class="container d-flex align-items-center">
+      
+      <h1 style="text-align: center; color: #fff ">New Shipment</h1>
+
+    </div>
+  </header>
+  <!-- End Header -->
+   <!-- logout button  -->
+   <a href="/">LOGOUT</a><hr class="decorative__line--break">
+   <a href="/dashboard">DASHBOARD</a><hr class="decorative__line--break">
+   <ul class="navigation navigation--secondary">
+
+    <div class="box-form" style="margin-top: 0%;">
+        <div class="right">
+          {% if Invoice %}
+          <span style="color: red;margin-left: 37%;;font-size: medium;font-family: inherit;">{{Invoice}}</span>
+          {%  endif %}
+          {% if Shipmentcreated %}
+          <span style="color: red;margin-left: 37%;;font-size: medium;font-family: inherit;">{{Shipmentcreated}}</span>
+          {%  endif %}
+          <form method="POST" action="/shipment">
+           <div class="inputs">
+             <div class="row">
+               <div class="column1">
+                 <input
+                  type="text"
+                  id="invNum"
+                  name="invoice"
+                  autocomplete="off"
+                  placeholder="Shipment/Invoice Number"
+                  required style="margin-left: 4%;"
+                 />
+                </div>
+                <div class="column2"></div>
+                <div class="column3">
+                 <input
+                  type="number"
+                  id="poNum"
+                  name="poNum"
+                  placeholder="PO Number"
+                  required style="margin-left: -10%"
+                 />
+                </div>
+              </div>
+            <div class="row">
+              <div class="column1">
+                <input
+                  type="number"
+                  id="conNum"
+                  name="containernumber"
+                  placeholder="Container Number"
+                  required style="margin-left: 4%;"
+                />
+              </div>
+              <div class="column2"></div>
+              <div class="column3">
+                <input
+                  type="number"
+                  id="delNum"
+                  name="deliverynumber"
+                  placeholder="Delivery Number"
+                  required style="margin-left: -10%"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="column1">
+                <input
+                  type="date"
+                  id="expdeldate"
+                  name="deliverydate"
+                  placeholder="Expected Delivery Date"
+                  onfocus="(this.type='date')"
+                  onblur="(this.type='text')"
+                  style="
+                    width: 100%;
+                    padding: 10px;
+                    margin-top: 22px;
+                    margin-left: 4%;
+                    font-size: 16px;
+                    border: none;
+                    outline: none;
+                    border-bottom: 2px solid #b0b3b9;
+                  "
+                  required style="margin-left: 4%;"
+                />
+              </div>
+              <div class="column2"></div>
+              <div class="column3">
+                <input
+                  type="number"
+                  id="ndcNum"
+                  name="ndcnumber"
+                  placeholder="NDC Number"
+                  required style="margin-left: -10%"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="column1">
+                <select
+                  id="routeDetails"
+                  required
+                  name="route"
+                  style="
+                    width: 106%;
+                    padding: 10px;
+                    margin-top: 25px;
+                    margin-left: 4%;
+                    font-size: 16px;
+                    border: none;
+                    outline: none;
+                    border-bottom: 2px solid #b0b3b9;
+                  "
+                  th:field="*{route}"
+                >
+                  <option value="" disabled selected>Select Route Details</option>
+                  <option value="USA - New York City, New York">USA - New York City, New York</option>
+		              <option value="USA - Los Angeles, California">USA - Los Angeles, California</option>
+		              <option value="USA - Chicago, Illinois">USA - Chicago, Illinois</option>
+		              <option value="USA - Houston, Texas">USA - Houston, Texas</option>
+		              <option value="USA - Phoenix, Arizona">USA - Phoenix, Arizona</option>
+		            <option value="USA - Philadelphia, Pennsylvania">USA - Philadelphia, Pennsylvania</option>
+                </select>
+              </div>
+              <div class="column2"></div>
+              <div class="column3">
+                <input
+                  type="number"
+                  id="batId"
+                  name="batch"
+                  placeholder="Batch ID Number"
+                  required style="margin-left: -10%"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="column1">
+                <select
+                  id="goods"
+                  required
+                  name="goods"
+                  style="
+                    width: 106%;
+                    padding: 10px;
+                    margin-top: 25px;
+                    margin-left: 4%;
+                    font-size: 16px;
+                    border: none;
+                    outline: none;
+                    border-bottom: 2px solid #b0b3b9;
+                  "
+                  th:field="*{goods}"
+                >
+                <option value="" disabled selected >Select Goods</option>
+                
+                <option value="E-Commerce">E-Commerce</option>
+                
+                <option value="Pharmaceutical">Pharmaceutical</option>
+                
+                <option value="Textiles">Textiles</option>
+                
+                <option value="Edibles">Edibles</option>
+                
+                <option value="Electronics">Electronics</option>
+                </select>
+              </div>
+              <div class="column2"></div>
+              <div class="column3">
+                <input
+                  type="number"
+                  id="serGoods"
+                  name="serialnumber"
+                  placeholder="Serial number of goods"
+                  required style="margin-left: -10%"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="column1">
+                <select
+                  id="device"
+                  required
+                  name="device"
+                  placeholder="Select Device"
+                  style="
+                    width: 106%;
+                    padding: 10px;
+                    margin-top: 25px;
+                    margin-left: 4%;
+                    font-size: 16px;
+                    border: none;
+                    outline: none;
+                    border-bottom: 2px solid #b0b3b9;
+                    /* color: #b0b3b9; */
+                  "
+                >
+                  <option value="" disabled selected>Select Device</option>
+                  <option value="Laptop">Laptop</option>
+                  <option value="Mobile">Mobile</option>
+                  <option value="Tablet">Tablet</option>
+                  <option value="Desktop">Desktop</option>
+                </select>
+              </div>
+              <div class="column2"></div>
+              <div class="column3">
+                <textarea
+                  type="text"
+                  id="desc"
+                  required
+                  name="description"
+                  onkeypress="return validate(event)" 
+                  style="
+                    width: 103%;
+                    padding: 0 6px;
+                    margin-top: 28px;
+                    font-size: 16px;
+                    border: none;
+                    outline: none;
+                    border-bottom: 2px solid #b0b3b9;
+                    font-family: 'Times New Roman', Times, serif;margin-left: -10%;
+                  "
+                  placeholder="Shipment Description"
+                  required
+                ></textarea>
+              </div>
+            </div>
+           </div>
+          
+  
+          <div  class="row">
+            <div style="width:70%;padding: 5px;display: flex;justify-content: space-between;margin-left: 15%;height: 25%";>
+              
+              <input id="createShipment" type="submit" value="Create Shipment"  
+              style="color: #fff;
+              font-size: 16px;
+              padding: 12px 25px;
+              border-radius: 50px;
+              display: inline-block;
+              border: 0;
+              outline: 0;
+              margin-left: -36px;
+              box-shadow: 0px 4px 20px 0px #FF416C;
+              background-image: linear-gradient(135deg, #FF416C 10%, #FF416C 100%);" 
+              > <a href="/shipment"></a>
+              
+              <input id="cancelShipment" type="reset" value="Cancel Shipment"  
+              style="color: #fff;
+              font-size: 16px;
+              padding: 12px 25px;
+              border-radius: 50px;
+              display: inline-block;
+              border: 0;
+              outline: 0;
+              margin-left: 268px;
+              box-shadow: 0px 4px 20px 0px #FF416C;
+              background-image: linear-gradient(135deg, #FF416C 10%, #FF416C 100%);"
+              ><a href="/shipment"></a>
+             
+
+            </div>
+          </div>
+          </form>
+          <script>
+            function validate(event) {
+              var key = event.which || event.keyCode || 0;
+              // <!------------ASCII Values  32 = Space , 40 = ( , 41= ), 46=(.)------------->
+              return ((key >= 65 && key <= 90) || 
+                      (key >= 97 && key <= 122) || (key==32 || key==40 || key==41 || key==46) || (key>= 48 && key <= 57))
+            }
+          </script>
+          <script>
+            var today = new Date().toISOString().substr(0, 10);
+            document.getElementById("expdeldate").setAttribute("min", today);
+          </script>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+  <!-- ======= Footer ======= -->
+<footer id="footer" style=" margin-left: -3%; margin-top: -1%;">
+  <div class="container footer-bottom clearfix">
+    <div class="copyright">
+      &copy; Copyright <strong><span>SCMXpert</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="https://www.scmxpert.com/" target="_blank">SCMXpertLite</a>
+    </div>
+  </div>
+</footer>
+<!-- End Footer -->
+</body>
+</html>

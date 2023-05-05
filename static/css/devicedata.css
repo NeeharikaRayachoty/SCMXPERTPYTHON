@@ -1,0 +1,162 @@
+/* Reset styles */
+* {
+  text-align: -webkit-center;
+    padding: 30px;
+    background-color:#fad3d3;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Set font family and size */
+  body {
+    padding-block: 5%;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Style for the device data stream container */
+  .deviceDataStreamContainer {
+    background-color: #ff4b2b9e;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: slideIn 0.5s forwards;
+  }
+  
+  /* Style for the device data stream heading */
+  .deviceDataStreamHeading {
+    background-color:#FF4B2B;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 1s forwards;
+  }
+  
+  /* Style for the device data stream table container */
+  .deviceDataStreamTableContainer {
+    background-color: #ff416c;
+    border: 1px solid #ccc;
+    padding: 20px;
+    animation: slideIn 0.5s forwards;
+  }
+  
+  /* Style for the device ID field container */
+  .deviceIdFieldContainer {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: slideIn 0.5s forwards;
+  }
+  
+  /* Style for the label of the device ID field */
+  .deviceIdFieldContainer label {
+    margin-left: 52%;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  /* Style for the input field of the device ID */
+  .deviceIdFieldContainer select {
+    margin-left: 30%;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Style for the form buttons container */
+  .formButtonsContainer {
+    display: flex;
+    justify-content: flex-end;
+    animation: slideIn 0.5s forwards;
+  }
+  
+  /* Style for the get device data button */
+  .getDeviceDataButton {
+    margin-left: 61%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #06700b;
+    color: #fff;
+    cursor: pointer;
+    animation: fadeIn 1s forwards;
+  }
+  
+  /* Style for the error message container */
+  .errorContainer {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    animation: slideIn 0.5s forwards;
+  }
+  
+  /* Style for the error icon */
+  .errorIcon {
+    margin-right: 5px;
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Style for the error text */
+  .errorText {
+    color: red;
+    font-size: 14px;
+  }
+  
+  /* Animation keyframes */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+ /* Footer */
+#footer {
+  background: linear-gradient(to right, #ff4b2b9e, #FF416C);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Footer link hover effect */
+#footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Login form animation */
+.login {
+  margin-top: 10%;
+  animation: auto;
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/shipment.css">
+  <title>Device Data Stream</title>
+
+</head>
+
+
+<!-- adding the HTML of that file  -->
+ <!-- <======= Header ======= --> 
+    <header id="header"  >
+      <div class="container d-flex align-items-center">
+        <h1 style="text-align: center; color: #fff; ">Device Data Stream</h1>
+      </div>
+    </header>
+<!-- End Header -->
+    <style>
+      /* Center the title */
+      h1 {
+        text-align: center;
+      }
+    </style><br>
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Device Data Stream</title>
+     <!-- Add the logout button HTML code here -->
+     <a href="/">LOGOUT</a><hr class="decorative__line--break">
+     <a href="/dashboard">DASHBOARD</a><hr class="decorative__line--break">
+     <ul class="navigation navigation--secondary">
+      <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+     
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ff4b2b4d;
+        background-color: #ff4b2b4d;
+        color: #333;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Battery Level</th>
+          <th>Device ID</th>
+          <th>First Sensor Temperature</th>
+          <th>Route From</th>
+          <th>Route To</th>
+        </tr>
+      </thead>
+
+
+      <tbody > 
+        {% for data in streaming_data %} 
+        <tr> 
+            <td>{{data.Battery_Level}}</td> 
+            <td>{{data.Device_ID}}</td> 
+            <td>{{data.First_Sensor_Temperature}}</td>
+            <td>{{data.Route_From}}</td> 
+            <td>{{data.Route_To}}</td> 
+         </tr> 
+          {% endfor %} 
+        </tbody>
+    </table>
+  </body>
+  </html>
+  
+   <!-- ======= Footer ======= -->
+<footer id="footer" style="   margin-left: -3%;   margin-top: 17%">
+  <div class="container footer-bottom clearfix">
+    <div class="copyright">
+      &copy; Copyright <strong><span>SCMXpert</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="https://www.scmxpert.com/" target="_blank">SCMXpertLite</a>
+    </div>
+  </div>
+</footer>
+<!-- End Footer -->
+</body>
+</html>

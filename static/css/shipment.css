@@ -1,0 +1,106 @@
+/* Styles for the header */
+header {
+  background-color: #ff4b2b9e;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  max-height: 60px;
+}
+
+/* Styles for the form */
+.box-form {
+  background-color: #ff4b2b4d;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
+  max-width: 800px;
+  padding: 13px;
+}
+
+.box-form h5 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Styles for the input fields */
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inputs .row {
+  display: flex;
+  flex-basis: 100%;
+  margin-bottom: 10px;
+}
+
+.inputs .column1 {
+  flex-basis: 45%;
+  padding-right: 5%;
+}
+
+.inputs .column2 {
+  flex-basis: 10%;
+}
+
+.inputs .column3 {
+  flex-basis: 45%;
+  padding-left: 5%;
+}
+
+.inputs input[type="text"],
+.inputs input[type="number"],
+.inputs input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: -10%;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #b0b3b9;
+}
+
+.inputs input[type="text"]:focus,
+.inputs input[type="number"]:focus,
+.inputs input[type="date"]:focus {
+  border-bottom: 2px solid #4299e1;
+}
+
+/* Footer */
+#footer {
+  background: linear-gradient(to right, #ff4b2b9e, #FF416C);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Footer link hover effect */
+#footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Login form animation */
+.login {
+  margin-top: 10%;
+  animation: auto;
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-50px);
+  }
+
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}

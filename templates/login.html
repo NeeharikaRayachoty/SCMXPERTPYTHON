@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LogIn</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/login.css">
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+	<title>Login</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+	
+	<!--====Google recaptcha=====-->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>	
+</head>
+
+	<!--====Login Page=====-->
+<body>
+	<div class="login" style="margin-top: 20%;">
+		<form method="post" action="/login">
+			<h1 style="margin-bottom: -20px;" >Log In</h1>
+			<!-- {% if Email_Existed %}
+				  <span style="color: red;margin-left: 25%;font-size: medium;font-family: inherit;">{{Email_Existed}}</span>
+				  {%  endif %}   -->
+				  {{errors }}
+			<input type="email" id="email" name="email" placeholder="Email" style="top:25px;position:relative; width: 88%;"
+			  required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+			  title="After the '.' sign, add at least 2 letters from a to z" />
+			<input type="password" id="password" name="password" class="password" placeholder="Password" required="required"
+			  style="top:25px;position:relative;width: 88%;" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+			  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" />
+			<span style="margin-left: 18rem;position: relative;color: hwb(330 7% 39%);top: -22px; left: -28px;" class="show">SHOW</span>
+			<div class="g-recaptcha" data-sitekey="6LfKHzUlAAAAAN9oNWH1dtxNJt_DigPgnQlFRbrR" data-callback="enablesubmit"></div>
+			<button type="submit" id="register" class="btn btn-primary btn-block btn-large" style="margin-top: 2.5%; width: 94%;"
+			  onclick="register()">Login</button>
+			
+			<div class="register" style="color: white; margin-top: 4%; text-align: center;">
+				Forget your password? <a href="/forget"> Forget !</a>
+			</div>
+			<br>
+			<div class="register" style="color: white; margin-top: 4%; text-align: center;">
+			  Don't you have an account? <a href="/signup"> SignUp !</a>
+			</div>
+		</form>
+	</div>
+			<!--====submit button=====-->
+	<script>
+		function enablesubmit() {
+			document.getElementById("login").disabled = false;
+		}
+		const pass_field = document.querySelector(".password");
+		const showBtn = document.querySelector(".show");
+			showBtn.addEventListener("click", function () {
+				if (pass_field.type === "password") {
+					pass_field.type = "text";
+					showBtn.textContent = "HIDE";
+					showBtn.style.color = "white"; 
+			} else {
+					pass_field.type = "password";
+					showBtn.textContent = "SHOW";
+					showBtn.style.color = "white";
+				}
+			});
+	</script>
+	
+
+
+
+	<!-- ======= Footer ======= -->
+	<footer id="footer" style="  margin-top: -14%;">
+		<div class="container footer-bottom clearfix">
+			<div class="copyright">
+				&copy; Copyright <strong><span>SCMXpert</span></strong>. All Rights Reserved
+			</div>
+			<div class="credits">
+				Designed by <a href="https://www.scmxpert.com/" target="_blank">SCMXpertLite</a>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer -->
+</body>
+</html>
